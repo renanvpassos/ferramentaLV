@@ -44,7 +44,7 @@ def tratar_planilha(file):
     df_final['PARTNUMBER'] = df_origem[C_PARTNUMBER]
     df_final['QUANTIDADE'] = df_origem[C_QUANTIDADE]
 
-    df_final['UNIDADE'] = df_origem[C_DESCRICAO].apply(verificar_unidade)
+    df_final['UNIDADE'] = df_origem[C_UNIDADE_MEDIDA].apply(limpar_numero)
 
     # Aplicação da limpeza e cálculo
     qtd_num = df_origem[C_QUANTIDADE].apply(limpar_numero)
@@ -62,8 +62,6 @@ def tratar_planilha(file):
     df_final['CFOP'] = df_origem[C_CFOP]
 
     df_final['PEDIDO'] = df_origem[C_ORDEM_COMPRA].apply(limpar_numero)
-
-    df_final['UNIDADE'] = df_origem[C_UNIDADE_MEDIDA].apply(limpar_numero)
 
     return df_final
 
