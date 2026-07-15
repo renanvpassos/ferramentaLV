@@ -14,7 +14,7 @@ def limpar_numero(valor):
     except ValueError:
         return 0.0
 
-def tratar_planilha(file, numero_fatura):
+def tratar_planilha(file):
     # Carrega a planilha de origem
     df_origem = pd.read_excel(file, header=0)
     df_origem.columns = [str(col).strip() for col in df_origem.columns]
