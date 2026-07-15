@@ -69,7 +69,7 @@ def tratar_planilha(file):
 
     df_final['PEDIDO'] = df_origem[C_ORDEM_COMPRA].apply(limpar_numero)
 
-    df_final['UNIDADE MEDIDA'] = df_origem[C_UNIDADE_MEDIDA].apply(limpar_numero)
+    df_final['UNIDADE'] = df_origem[C_UNIDADE_MEDIDA].apply(limpar_numero)
 
     return df_final
 
