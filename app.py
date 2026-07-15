@@ -38,7 +38,7 @@ def tratar_planilha(file):
         raise ValueError(f"Cabeçalhos faltando: {', '.join(colunas_faltantes)}")
 
     # Estrutura Final (Adicionado CFOP)
-    colunas_finais = ['PARTNUMBER', 'QUANTIDADE', 'UNIDADE', 'PRECOTOTAL', 'PESOTOTAL', 'INCOTERMS', 'MOEDA', 'FATURA', 'CFOP', 'PEDIDO', 'UNIDADE MEDIDA']
+    colunas_finais = ['PARTNUMBER', 'QUANTIDADE', 'UNIDADE', 'PRECOTOTAL', 'PESOTOTAL', 'INCOTERMS', 'MOEDA', 'FATURA', 'CFOP', 'PEDIDO']
     df_final = pd.DataFrame(columns=colunas_finais)
 
     df_final['PARTNUMBER'] = df_origem[C_PARTNUMBER]
