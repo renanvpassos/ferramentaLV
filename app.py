@@ -76,7 +76,7 @@ st.title("📂 Tratamento planilha Louis Vuitton")
 
 uploaded_file = st.file_uploader("Selecione o arquivo Excel de origem (.xlsx)", type=["xlsx"])
 
-if uploaded_file and fatura_input:
+if uploaded_file:
     if st.button("Processar Planilha", use_container_width=True):
         try:
             with st.spinner("Processando dados..."):
