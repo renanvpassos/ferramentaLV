@@ -74,14 +74,13 @@ def tratar_planilha(file, numero_fatura):
 st.set_page_config(page_title="Tratador de Planilhas", layout="centered")
 st.title("📂 Tratamento planilha Louis Vuitton")
 
-fatura_input = st.text_input("Número da Fatura (será aplicado a todas as linhas):", placeholder="Ex: FAT12345")
 uploaded_file = st.file_uploader("Selecione o arquivo Excel de origem (.xlsx)", type=["xlsx"])
 
 if uploaded_file and fatura_input:
     if st.button("Processar Planilha", use_container_width=True):
         try:
             with st.spinner("Processando dados..."):
-                resultado = tratar_planilha(uploaded_file, fatura_input)
+                resultado = tratar_planilha(uploaded_file)
                 
                 output = io.BytesIO()
                 with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
@@ -96,5 +95,3 @@ if uploaded_file and fatura_input:
                 )
         except Exception as e:
             st.error(f"Erro ao processar: {e}")
-elif uploaded_file and not fatura_input:
-    st.warning("⚠️ Por favor, preencha o número da fatura antes de processar.")
