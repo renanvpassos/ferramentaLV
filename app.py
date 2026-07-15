@@ -44,12 +44,6 @@ def tratar_planilha(file):
     df_final['PARTNUMBER'] = df_origem[C_PARTNUMBER]
     df_final['QUANTIDADE'] = df_origem[C_QUANTIDADE]
 
-    # Lógica de Unidade
-    def verificar_unidade(valor):
-        valor_str = str(valor).upper()
-        palavras_pares = ["TENIS", "TÊNIS", "SAPATO", "MOCASSIM", "SANDALIA"]
-        return "PARES" if any(p in valor_str for p in palavras_pares) else "PECA"
-
     df_final['UNIDADE'] = df_origem[C_DESCRICAO].apply(verificar_unidade)
 
     # Aplicação da limpeza e cálculo
